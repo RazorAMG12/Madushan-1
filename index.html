@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #111;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Login Form Styles */
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .login-box {
+        padding: 20px;
+        background-color: #222;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    }
+
+    h2 {
+        color: #ff77a9;
+    }
+
+    input[type="text"], button {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+    }
+
+    input[type="text"] {
+        background-color: #333;
+        color: #fff;
+    }
+
+    button {
+        background-color: #ff3366;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background-color: #ff5e85;
+    }
+
+    /* Heart Page Styles */
+    .heart-page {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .heart {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        transform: rotate(45deg);
+        animation: float 3s ease-in-out infinite, glow 1.5s ease-in-out infinite;
+    }
+
+    .heart:before,
+    .heart:after {
+        content: '';
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: #ff3366;
+        border-radius: 50%;
+    }
+
+    .heart:before {
+        top: -75px;
+        left: 0;
+    }
+
+    .heart:after {
+        left: 75px;
+        top: 0;
+    }
+
+    .message {
+        font-size: 2em;
+        color: #ff77a9;
+        margin-top: 20px;
+        animation: shine 3s ease-in-out infinite, float 3s ease-in-out infinite;
+    }
+
+    /* Animation Effects */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(45deg);
+        }
+        50% {
+            transform: translateY(-10px) rotate(45deg);
+        }
+    }
+
+    @keyframes glow {
+        0%, 100% {
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.7), 0 0 25px rgba(255, 105, 180, 0.5);
+        }
+        50% {
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.8), 0 0 50px rgba(255, 105, 180, 0.6);
+        }
+    }
+
+    @keyframes shine {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.7;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="login-container" id="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <button onclick="checkLogin()">Log In</button>
+        </div>
+    </div>
+
+    <!-- Heart Page -->
+    <div class="heart-page" id="heart-page">
+        <div class="heart"></div>
+        <div class="message">I love you</div>
+    </div>
+
+<script>
+    function checkLogin() {
+        const username = document.getElementById("username").value;
+        if (username === "Akarsha") {
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("heart-page").style.display = "flex";
+        } else {
+            alert("Incorrect Username!");
+        }
+    }
+</script>
+</body>
+</html>
